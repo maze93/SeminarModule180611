@@ -1,0 +1,25 @@
+{
+  "id": "5277e25f-254c-4dca-ac1f-13e46d404eec",
+  "name": "Seminar Module",
+  "publisher": "Mattias Zetreus",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.0",
+  "compatibilityId": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "11.0.0.0",
+  "application": "11.0.0.0",
+  "showMyCode": true,
+  "idRange": {
+    "from": 123456700,
+    "to": 123456799
+  },
+  "features": "TranslationFile"
+}
