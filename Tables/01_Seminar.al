@@ -88,7 +88,7 @@ table 123456701 "CSD Seminar"
         }
         field(130;"No. Series";Code[10])
         {
-            Caption = ' No. Series';
+            Caption = 'No. Series';
             TableRelation = "No. Series".Code;
             Editable = false;
         }
