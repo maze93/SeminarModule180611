@@ -1,5 +1,7 @@
 table 123456704 "CSD Seminar Comment Line"
 {
+    LookupPageId = "CSD Seminar Comment List";
+    DrillDownPageId = "CSD Seminar Comment List";
     
     fields
     {
