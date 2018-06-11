@@ -4,7 +4,7 @@ page 123456706 "CSD Seminar Comment Sheet"
     SourceTable = "CSD Seminar Comment Line";
     UsageCategory = Tasks;
     ShowFilter = false;
-    Caption = 'Seminar Comment Sheet';
+    Caption = 'Seminar Comment Sheets';
 
     layout
     {
