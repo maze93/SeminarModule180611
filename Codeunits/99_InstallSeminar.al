@@ -65,7 +65,7 @@ codeunit 123456799 InstallSeminar
         SourceCode.Code := 'SEMINAR';
         if SourceCode.Insert then;
         SourceCodeSetup.get;
-        //SourceCodeSetup."CSD Seminar" := 'SEMINAR'; //MZ deactivated
+        SourceCodeSetup."CSD Seminar" := 'SEMINAR'; //MZ deactivated
         SourceCodeSetup.modify;
      end;
     local procedure CreateSeminar();

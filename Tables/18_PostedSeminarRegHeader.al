@@ -141,6 +141,13 @@ table 123456718 "CSD Posted Seminar Reg. Header"
         {
             Caption = 'Posting No.';
         }
+        field(29;"Source Code";Code[20]) {
+            Caption = 'Source Code';
+            TableRelation = "Source Code".Code;
+        }
+        field(30;"User ID";Code[20]) {
+            Caption = 'User ID';
+        }
     }
 
     keys
