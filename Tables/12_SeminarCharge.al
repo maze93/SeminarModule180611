@@ -1,4 +1,4 @@
-table 123456712 "CSD Seminar Charge"
+table 123456712 "Seminar Charge"
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 1
@@ -11,7 +11,7 @@ table 123456712 "CSD Seminar Charge"
         {
             Caption='Document No.';
             NotBlank = true;
-            TableRelation = "CSD Sem. Registration Header";
+            TableRelation = "Seminar Registration Header";
         }
         field(2;"Line No.";Integer)
         {
@@ -190,6 +190,6 @@ table 123456712 "CSD Seminar Charge"
         GLAccount : Record "G/L Account";
         Resource : Record Resource;
         ResourceUofM : Record "Resource Unit of Measure";
-        SeminarRegistrationHeader : Record "CSD Sem. Registration Header";
+        SeminarRegistrationHeader : Record "Seminar Registration Header";
 }
 

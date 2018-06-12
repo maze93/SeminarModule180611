@@ -15,7 +15,7 @@ codeunit 123456799 InstallSeminar
     var
         NoSerie: Record "No. Series";
         NoSerieLine: Record "No. Series Line";
-        SeminarSetup: Record "CSD Seminar Setup";
+        SeminarSetup: Record "Seminar Setup";
         SourceCodeSetup: Record "Source Code Setup";
         SourceCode: Record "Source Code";
     begin
@@ -65,12 +65,12 @@ codeunit 123456799 InstallSeminar
         SourceCode.Code := 'SEMINAR';
         if SourceCode.Insert then;
         SourceCodeSetup.get;
-        SourceCodeSetup."CSD Seminar" := 'SEMINAR'; //MZ deactivated
+        SourceCodeSetup."CSD Seminar" := 'SEMINAR';
         SourceCodeSetup.modify;
      end;
     local procedure CreateSeminar();
     var
-        Seminar: Record "CSD Seminar";
+        Seminar: Record Seminar;
     begin
         Seminar."No.":='SOLDEV';
         Seminar.Validate(Name,'Solution Development');

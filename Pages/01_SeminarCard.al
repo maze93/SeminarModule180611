@@ -1,75 +1,114 @@
-page 123456701 "CSD Seminar Card"
+page 123456701 "Seminar Card"
+// CSD1.00 - 2018-01-01 - D. E. Veloper
+// Chapter 5 - Lab 2-4 & Lab 2-5
+
 {
     PageType = Card;
-    SourceTable = "CSD Seminar";
-    Caption = 'Seminar Card';
+    SourceTable = Seminar;
 
     layout
     {
         area(content)
         {
-            group("CSD General")
+            group(General)
             {
-                Caption = 'General';
-                field("No.";"No.") {
+                field("No."; "No.")
+                {
+                    AssistEdit=true;
                     trigger OnAssistEdit();
                     begin
-                        if Rec.AssistEdit then
-                            CurrPage.Update(false);
+                        if AssistEdit then
+                            CurrPage.Update;
                     end;
                 }
-                field(Name;Name) {}
-                field("Search Name";"Search Name") {}
-                field("Seminar Duration";"Seminar Duration") {}
-                field("Minimum Participants";"Minimum Participants") {}
-                field("Maximum Participants";"Maximum Participants") {}
-                field(Blocked;Blocked) {}
-                field("Last Date Modified";"Last Date Modified") {}
+                field(Name; Name)
+                {
+                }
+                field("Search Name"; "Search Name")
+                {
+                }
+                field("Seminar Duration";"Seminar Duration")
+                {
+                }
+                field("Minimum Participants"; "Minimum Participants")
+                {
+                }
+                field("Maximum Participants"; "Maximum Participants")
+                {
+                }
+                field(Blocked; Blocked)
+                {
+                }
+                field("Last Date Modified"; "Last Date Modified")
+                {
+                }
             }
-            group("CSD Invoicing") {
-                Caption = 'Invoicing';
-                field("Gen. Prod. Posting Group";"Gen. Prod. Posting Group") {}
-                field("VAT Prod. Posting Group";"VAT Prod. Posting Group") {}
-                field("Seminar Price";"Seminar Price") {}
+            group(Invoicing)
+            {
+                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                {
+                }
+                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                {
+                }
+                field("Seminar Price"; "Seminar Price")
+                {
+                }
+            }
+        }
+        area(FactBoxes)
+        {
+            systempart("Links"; Links)
+            {
+            }
+            systempart("Notes"; Notes)
+            {
+            }
+        }
 
-            }
-        }
-        area(FactBoxes) {
-            systempart("Links";Links) {}
-            systempart("Notes";Notes) {}
-        }
     }
-
 
     actions
     {
         area(Navigation)
         {
-            group("&Seminar") {
+            group("&Seminar")
+            {
                 action("Co&mments")
                 {
+                    RunObject=page "Seminar Comment Sheet";
+                    RunPageLink = "Table Name"=const(Seminar),"No."=field("No.");
                     Image = Comment;
                     Promoted = true;
                     PromotedIsBig = true;
                     PromotedOnly = true;
-
-                    trigger OnAction();
-                    var
-                        SeminarCommentLine : Record "CSD Seminar Comment Line";
-                    begin
-                        SeminarCommentLine.Reset;
-                        SeminarCommentLine.SetRange("Table Name", SeminarCommentLine."Table Name"::Seminar);
-                        SeminarCommentLine.SetRange("No.", "No.");
-                        if Page.RunModal(Page::"CSD Seminar Comment Sheet",SeminarCommentLine) = Action::LookupOk then begin
-
-                        end;
-                    end;
+                }
+                action("Ledger Entries") {
+                    RunObject=page "Seminar Ledger Entries"; 
+                    RunPageLink="Seminar No."=field("No."); 
+                    Promoted=true; 
+                    PromotedCategory=Process; 
+                    ShortcutKey="Ctrl+F7"; 
+                    Image=WarrantyLedger;
+                }
+                action("&Registrations") { 
+                    RunObject=page "Seminar Registration List"; 
+                    RunPageLink="Seminar No."=field("No."); 
+                    Image=Timesheet; 
+                    Promoted=true; 
+                    PromotedCategory=Process; 
                 }
             }
         }
+        area(Processing) { 
+            action("Seminar Registration") { 
+                RunObject= page "Seminar Registration"; 
+                RunPageLink="Seminar No."=field("No."); 
+                RunPageMode=Create; 
+                Image=NewTimesheet; 
+                Promoted=true; 
+                PromotedCategory=New; 
+            } 
+        }
     }
-
-    
-    var
-        myInt : Integer;
 }

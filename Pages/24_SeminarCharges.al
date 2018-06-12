@@ -1,4 +1,4 @@
-page 123456724 "CSD Seminar Charges"
+page 123456724 "Seminar Charges"
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 1
@@ -7,7 +7,7 @@ page 123456724 "CSD Seminar Charges"
     AutoSplitKey = true;
     Caption = 'Seminar Charges';
     PageType = List;
-    SourceTable = "CSD Seminar Charge";
+    SourceTable = "Seminar Charge";
 
     layout
     {

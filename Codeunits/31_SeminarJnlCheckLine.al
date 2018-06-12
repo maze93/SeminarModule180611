@@ -2,7 +2,7 @@ codeunit 123456731 "Seminar Jnl.-Check Line"
 // CSD1.00 - 2018-01-01 - D. E. Veloper
 // Chapter 7 - Lab 2-1
 {
-    TableNo = "CSD Seminar Journal Line";
+    TableNo="Seminar Journal Line";
 
     trigger OnRun();
     begin
@@ -16,7 +16,7 @@ codeunit 123456731 "Seminar Jnl.-Check Line"
         AllowPostingTo : Date;
         ClosingDateTxt : Label 'cannot be a closing date.';
         PostingDateTxt : label 'is not within your range of allowed posting dates.';
-procedure RunCheck(var SeminarJournalLine : Record "CSD Seminar Journal Line");
+procedure RunCheck(var SeminarJournalLine : Record "Seminar Journal Line");
 var
     myInt : Integer;
 begin

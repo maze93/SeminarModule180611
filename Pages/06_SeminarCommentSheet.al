@@ -1,11 +1,10 @@
-page 123456706 "CSD Seminar Comment Sheet"
+page 123456706 "Seminar Comment Sheet"
+// CSD1.00 - 2018-01-01 - D. E. Veloper
+// Chapter 5 - Lab 2-2
 {
-    PageType = List;
-    SourceTable = "CSD Seminar Comment Line";
-    UsageCategory = Lists;
-    ShowFilter = false;
     Caption = 'Seminar Comment Sheet';
-    AutoSplitKey = true;
+    PageType = List;
+    SourceTable = "Seminar Comment Line";
 
     layout
     {
@@ -13,25 +12,17 @@ page 123456706 "CSD Seminar Comment Sheet"
         {
             repeater(Group)
             {
-                field(Date;Date) {}
-                field(Code;Code) {
-                    Visible= false;
+                field(Date;Date)
+                {
                 }
-                field(Comment;Comment) {}
+                field(Code;Code)
+                {
+                    Visible=false;
+                }
+                field(Comment;Comment)
+                {    
+                }
             }
         }
     }
-
-    actions
-    {
-        area(processing)
-        {
-
-        }
-    }
-
-    trigger OnNewRecord(BelowxRec : Boolean);
-    begin
-        SetupNewLine;
-    end;
 }

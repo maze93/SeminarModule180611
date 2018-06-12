@@ -1,90 +1,88 @@
-table 123456721 "CSD Posted Seminar Charge"
+table 123456721 "Posted Seminar Charge"
 {
-    Caption = 'Posted Seminar Charge';
+    // CSD1.00 - 2018-01-01 - D. E. Veloper
+    //   Chapter 7 - Lab 3-4
+    //     - Created new table
+    Caption='Seminar Charge';
 
     fields
     {
-        field(1; "Document No."; Code[20])
+        field(1;"Document No.";Code[20])
         {
-            Caption = 'Document No.';
+            Caption='Document No.';
             NotBlank = true;
-            TableRelation = "CSD Sem. Registration Header";
+            TableRelation = "Posted Seminar Reg. Header";
         }
-        field(2; "Line No."; Integer)
+        field(2;"Line No.";Integer)
         {
-            Caption = 'Line No.';
+            Caption='Line No.';
         }
-        field(3; Type; Option)
+        field(3;Type;Option)
         {
-            Caption = 'Type';
+            Caption='Type';
             OptionCaption = 'Resource,G/L Account';
-            OptionMembers = Resource, "G/L Account";
+            OptionMembers = Resource,"G/L Account";
         }
-        field(4; "No."; Code[20])
+        field(4;"No.";Code[20])
         {
-            Caption = 'No.';
-            TableRelation = if(Type = const (Resource)) Resource."No."
-            else if(Type = const ("G/L Account")) "G/L Account"."No.";
-
+            Caption='No.';
+            TableRelation = if (Type=const(Resource)) Resource."No."
+                            else if (Type=const("G/L Account")) "G/L Account"."No.";
         }
-        field(5; Description; Text[50])
+        field(5;Description;Text[50])
         {
-            Caption = 'Description';
+            Caption='Description';
         }
-        field(6; Quantity; Decimal)
+        field(6;Quantity;Decimal)
         {
-            Caption = 'Quantity';
-            DecimalPlaces = 0 : 5;
-
+            Caption='Quantity';
+            DecimalPlaces = 0:5;
         }
-        field(7; "Unit Price"; Decimal)
+        field(7;"Unit Price";Decimal)
         {
-            Caption = 'Unit Price';
+            Caption='Unit Price';
             AutoFormatType = 2;
             MinValue = 0;
-
         }
-        field(8; "Total Price"; Decimal)
+        field(8;"Total Price";Decimal)
         {
-            Caption = 'Total Price';
+            Caption='Total Price';
             AutoFormatType = 1;
             Editable = false;
-
         }
-        field(9; "To Invoice"; Boolean)
+        field(9;"To Invoice";Boolean)
         {
-            Caption = 'To Invoice';
+            Caption='To Invoice';
             InitValue = true;
         }
-        field(10; "Bill-to Customer No."; Code[20])
+        field(10;"Bill-to Customer No.";Code[20])
         {
-            Caption = 'Bill-to Customer No.';
+            Caption='Bill-to Customer No.';
             TableRelation = Customer."No.";
         }
-        field(11; "Unit of Measure Code"; Code[10])
+        field(11;"Unit of Measure Code";Code[10])
         {
-            Caption = 'Unit of Measure Code';
-            TableRelation = if(Type = const (Resource)) "Resource Unit of Measure".Code where ("Resource No." = Field ("No."))
-            else "Unit of Measure".Code;
-
+            Caption='Unit of Measure Code';
+            TableRelation = if (Type=const(Resource)) "Resource Unit of Measure".Code where ("Resource No."=Field("No."))
+                            else "Unit of Measure".Code;
         }
-        field(12; "Gen. Prod. Posting Group"; Code[10])
+        field(12;"Gen. Prod. Posting Group";Code[10])
         {
-            Caption = 'Gen. Prod. Posting Group';
+            Caption='Gen. Prod. Posting Group';
             TableRelation = "Gen. Product Posting Group".Code;
         }
-        field(13; "VAT Prod. Posting Group"; Code[10])
+        field(13;"VAT Prod. Posting Group";Code[10])
         {
-            Caption = 'VAT Prod. Posting Group';
+            Caption='VAT Prod. Posting Group';
             TableRelation = "VAT Product Posting Group".Code;
         }
-        field(14; "Qty. per Unit of Measure"; Decimal)
+        field(14;"Qty. per Unit of Measure";Decimal)
         {
-            Caption = 'Qty. per Unit of Measure';
+            Caption='Qty. per Unit of Measure';
         }
-        field(15; Registered; Boolean)
+        field(15;Registered;Boolean)
         {
-            Caption = 'Registered';
+            Caption='Registered';
             Editable = false;
         }
     }
@@ -96,23 +94,8 @@ table 123456721 "CSD Posted Seminar Charge"
         }
     }
 
-    var
-        myInt: Integer;
-
-    trigger OnInsert();
-    begin
-    end;
-
-    trigger OnModify();
-    begin
-    end;
-
-    trigger OnDelete();
-    begin
-    end;
-
-    trigger OnRename();
-    begin
-    end;
-
+    fieldgroups
+    {
+    }
 }
+

@@ -16,7 +16,7 @@ codeunit 123456700 "Seminar-Post"
             TestField("Seminar No.");
             TestField(Duration);
             TestField("Instructor Resource No.");
-            TestField("Room Resource Code"); 
+            TestField("Room Resource No."); 
             TestField(Status,Status::Closed);
             SeminarRegLine.Reset; 
             SeminarRegLine.SetRange("Document No.","No."); 
@@ -88,19 +88,19 @@ codeunit 123456700 "Seminar-Post"
     end;
 
     var
-        SeminarRegHeader: Record "CSD Sem. Registration Header";
-        SeminarRegLine: Record "CSD Seminar Registration Line";
-        PstdSeminarRegHeader: Record "CSD Posted Seminar Reg. Header";
-        PstdSeminarRegLine: Record "CSD Posted Seminar Reg. Line";
-        SeminarCommentLine: Record "CSD Seminar Comment Line";
-        SeminarCommentLine2: Record "CSD Seminar Comment Line";
-        SeminarCharge: Record "CSD Seminar Charge";
-        PstdSeminarCharge: Record "CSD Posted Seminar Charge";
+        SeminarRegHeader: Record "Seminar Registration Header";
+        SeminarRegLine: Record "Seminar Registration Line";
+        PstdSeminarRegHeader: Record "Posted Seminar Reg. Header";
+        PstdSeminarRegLine: Record "Posted Seminar Reg. Line";
+        SeminarCommentLine: Record "Seminar Comment Line";
+        SeminarCommentLine2: Record "Seminar Comment Line";
+        SeminarCharge: Record "Seminar Charge";
+        PstdSeminarCharge: Record "Posted Seminar Charge";
         Room: Record Resource;
         Instructor: Record Resource;
         Customer: Record Customer;
         ResLedgEntry: Record "Res. Ledger Entry";
-        SeminarJnlLine: Record "CSD Seminar Journal Line";
+        SeminarJnlLine: Record "Seminar Journal Line";
         SourceCodeSetup: Record "Source Code Setup";
         ResJnlLine: Record "Res. Journal Line";
         SeminarJnlPostLine: Codeunit "Seminar Jnl.-Post Line";
@@ -185,7 +185,7 @@ codeunit 123456700 "Seminar-Post"
             SeminarJnlLine."Instructor Resource No." := "Instructor Resource No.";
             SeminarJnlLine."Starting Date" := "Starting Date";
             SeminarJnlLine."Seminar Registration No." := PstdSeminarRegHeader."No.";
-            SeminarJnlLine."Room Resource No." := "Room Resource Code";
+            SeminarJnlLine."Room Resource No." := "Room Resource No.";
             SeminarJnlLine."Source Type" := SeminarJnlLine."Source Type"::Seminar;
             SeminarJnlLine."Source No." := "Seminar No.";
             SeminarJnlLine."Source Code" := SourceCode;
@@ -204,7 +204,7 @@ codeunit 123456700 "Seminar-Post"
 
               ChargeType::Room :
                 begin
-                    Room.GET("Room Resource Code"); 
+                    Room.GET("Room Resource No."); 
                     SeminarJnlLine.Description := Room.Name; 
                     SeminarJnlLine.Type := SeminarJnlLine.Type::Resource; 
                     SeminarJnlLine.Chargeable := false; 

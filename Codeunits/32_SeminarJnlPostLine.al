@@ -2,7 +2,7 @@ codeunit 123456732 "Seminar Jnl.-Post Line"
 // CSD1.00 - 2018-01-01 - D. E. Veloper
 // Chapter 7 - Lab 2-2
 {
-    TableNo = "CSD Seminar Journal Line";
+    TableNo = "Seminar Journal Line";
 
     trigger OnRun();
     begin
@@ -10,13 +10,13 @@ codeunit 123456732 "Seminar Jnl.-Post Line"
     end;
 
     var
-        SeminarJnlLine: Record "CSD Seminar Journal Line";
-        SeminarLedgerEntry: Record "CSD Seminar Ledger Entry";
-        SeminarRegister: Record "CSD Seminar Register";
+        SeminarJnlLine: Record "Seminar Journal Line";
+        SeminarLedgerEntry: Record "Seminar Ledger Entry";
+        SeminarRegister: Record "Seminar Register";
         SeminarJnlCheckLine: Codeunit "Seminar Jnl.-Check Line";
         NextEntryNo: Integer;
 
-    procedure RunWithCheck(var SeminarJnLine2: Record "CSD Seminar Journal Line");
+    procedure RunWithCheck(var SeminarJnLine2: Record "Seminar Journal Line");
     var
         myInt: Integer;
     begin

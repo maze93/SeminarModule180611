@@ -1,14 +1,14 @@
-page 123456739 "CSD Posted Seminar Charges"
+page 123456739 "Posted Seminar Charges"
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 3
     //     - Created new page
 
     AutoSplitKey = true;
-    Caption = 'Seminar Charges';
+    Caption = 'Posted Seminar Charges';
     Editable = false;
     PageType = List;
-    SourceTable = 123456721;
+    SourceTable = "Posted Seminar Charge";
 
     layout
     {

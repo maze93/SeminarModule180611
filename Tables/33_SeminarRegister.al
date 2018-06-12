@@ -1,4 +1,4 @@
-table 123456733 "CSD Seminar Register"
+table 123456733 "Seminar Register"
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 1
@@ -8,19 +8,19 @@ table 123456733 "CSD Seminar Register"
 
     fields
     {
-        field(1;"Entry No.";Integer)
+        field(1;"No.";Integer)
         {
-            Caption = 'Entry No.';
+            Caption = 'No.';
         }
         field(2;"From Entry No.";Integer)
         {
             Caption = 'From Entry No.';
-            TableRelation = "CSD Seminar Ledger Entry";
+            TableRelation = "Seminar Ledger Entry";
         }
         field(3;"To Entry No.";Integer)
         {
             Caption = 'To Entry No.';
-            TableRelation = "CSD Seminar Ledger Entry";
+            TableRelation = "Seminar Ledger Entry";
         }
         field(4;"Creation Date";Date)
         {
@@ -40,16 +40,13 @@ table 123456733 "CSD Seminar Register"
 
             trigger OnLookup();
             var
-                UserMgt : Codeunit 418;
+                UserMgt : Codeunit "User Management";
             begin
                 UserMgt.LookupUserID("User ID");
             end;
         }
-        field(7;"Journal Template Name";Code[10])
-        {
-            Caption = 'Journal Template Name';
-        }
-        field(8;"Journal Batch Name";Code[10])
+
+        field(7;"Journal Batch Name";Code[10])
         {
             Caption = 'Journal Batch Name';
         }
@@ -57,13 +54,13 @@ table 123456733 "CSD Seminar Register"
 
     keys
     {
-        key(Key1;"Entry No.")
+        key(Key1;"No.")
         {
         }
         key(Key2;"Creation Date")
         {
         }
-        key(Key3;"Source Code","Journal Template Name","Creation Date")
+        key(Key3;"Source Code","Creation Date")
         {
         }
     }

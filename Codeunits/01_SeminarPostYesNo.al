@@ -14,7 +14,7 @@ codeunit 123456701 "Seminar-Post (Yes/No)"
     end;
 
     var
-        SeminarRegHeader : Record "CSD Sem. Registration Header";
+        SeminarRegHeader : Record "Seminar Registration Header";
         SeminarPost : Codeunit "Seminar-Post";
         Text001 : Label 'Do you want to post the Registration?';
 

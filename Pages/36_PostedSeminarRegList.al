@@ -1,14 +1,15 @@
-page 123456736 "CSD Posted Seminar Reg. List"
+page 123456736 "Posted Seminar Reg. List"
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 3
     //     - Created new page
 
-    Caption = 'Seminar Registration List';
-    CardPageID = "CSD Posted Sem. Registration";
+    Caption = 'Posted Seminar Registration List';
+    CardPageID = "Posted Seminar Registration";
     Editable = false;
     PageType = List;
-    SourceTable = 123456718;
+    SourceTable = "Posted Seminar Reg. Header";
+    UsageCategory=Documents;
 
     layout
     {
@@ -37,21 +38,21 @@ page 123456736 "CSD Posted Seminar Reg. List"
                 field("Maximum Participants";"Maximum Participants")
                 {
                 }
-                field("Room Resource No.";"Room Resource Code")
+                field("Room Resource No.";"Room Resource No.")
                 {
                 }
             }
         }
         area(factboxes)
         {
-            part(SeminarDetailsFactBox;123456717)
+            part("Seminar Details FactBox";"Seminar Details FactBox")
             {
                 SubPageLink = "No."=Field("Seminar No.");
             }
-            systempart(Links;Links)
+            systempart("Links";Links)
             {
             }
-            systempart(Notes;Notes)
+            systempart("Notes";Notes)
             {
             }
         }
@@ -68,7 +69,7 @@ page 123456736 "CSD Posted Seminar Reg. List"
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page 123456706;
+                    RunObject = Page "Seminar Comment List";
                     RunPageLink = "No."=Field("No.");
                     RunPageView = where("Table Name"=const("Posted Seminar Reg. Header"));
                 }
