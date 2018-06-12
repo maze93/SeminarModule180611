@@ -288,6 +288,9 @@ table 123456710 "Seminar Registration Header"
         {
             Caption = 'Posting No.';
         }
+        field(40;"No. Printed";Integer) { 
+            Caption='No. Printed'; Editable=false; 
+        }
     }
 
     keys
